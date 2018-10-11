@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ShipList = ({ships}) => [
-    <h1>List of transports</h1>,
+    <h1 key="title">List of transports</h1>,
 
     ships.map(({name, manufacturer, cost_in_credits: cost}, i) => (
     <ul key={i} className="list">

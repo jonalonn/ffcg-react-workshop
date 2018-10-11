@@ -57,7 +57,7 @@ const fetchPeople = async (_fetch = fetch) =>
 
 //Extract relevant data
 
-const fetchFields = async () => pluckFields(await fetchTransport());
+const fetchTransportFields = async () => pluckFields(await fetchTransport());
 const fetchPeopleFields = async () => pluckFields(await fetchPeople());
 
 // Calculate stuff with compositioning of functions
@@ -77,7 +77,7 @@ export const sortedByCost = pipe(
 // Set initial state in componentDidMount
 
 export const getState = async () => ({
-  ships: await fetchFields(),
+  ships: await fetchTransportFields(),
   people: await fetchPeopleFields(),
   fetched: true
 });
