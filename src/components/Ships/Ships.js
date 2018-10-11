@@ -1,5 +1,6 @@
 import React from "react";
 import './Ships.css';
+import ShipList from '../ShipList';
 
 import {
   calculateTotalPassengers,
@@ -12,13 +13,7 @@ const Ships = ({ ships }) => (
     <p>Total passenger count: {calculateTotalPassengers(ships)}</p>
     <p>Biggest ship: {findBiggestShip(ships)}</p>
     <p>Smallest ship: {findSmallestShip(ships)}</p>
-    {ships.map((ship, i) => (
-      <ul key={i} className="list">
-        <li>Name: {ship.name}</li>
-        <li>Manufacturer: {ship.manufacturer}</li>
-        <li>Cost: {ship.cost_in_credits}</li>
-      </ul>
-    ))}
+    <ShipList ships={ships} />
   </div>
 );
 

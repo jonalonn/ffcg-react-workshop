@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import Ships from "./components/Ships";
+import Button from "./components/Button";
+
 import { getState, sortedByCost } from "./helpers";
 
 class App extends Component {
@@ -27,9 +29,7 @@ class App extends Component {
         <header className="App-header">
           {fetched ? (
             [
-              <button onClick={this.sortByCost} key="0">
-                Sort by cost
-              </button>,
+              <Button onClick={this.sortByCost} btnText={"Sort by cost"} key="0"/>,
               <Ships ships={sorted.length !== 0 ? sorted : ships} key="1" />
             ]
           ) : (
