@@ -15,10 +15,10 @@ class App extends Component {
   async componentDidMount() {
     this.setState({
       ...(await getState())
-    });
+    });              
   }
 
-  sortByCost = () => this.setState({ sorted: sortedByCost(this.state.ships) });
+  sortByCost = () => this.setState({ sorted: sortedByCost(this.state.ships) })
 
   render() {
     console.log(this.state);

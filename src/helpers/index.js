@@ -2,7 +2,7 @@ import { pipe } from "ramda";
 
 // Logger function
 
-const logger = data => console.log(data) || data;
+// const logger = data => console.log(data) || data;
 
 // Pluck data
 
@@ -52,10 +52,13 @@ export const findSmallestShip = findShipSize(smallest);
 const fetchTransport = async (_fetch = fetch) =>
   await (await _fetch("json/transport.json")).json();
 
+const fetchPeople = async (_fetch = fetch) => 
+  await (await _fetch("json/people.json")).json();
+
 //Extract relevant data
 
 const fetchFields = async () => pluckFields(await fetchTransport());
-// const fetchFields = async () => pluckFields(await fetchTransport());
+const fetchPeopleFields = async () => pluckFields(await fetchPeople());
 
 // Calculate stuff with compositioning of functions
 
@@ -67,7 +70,6 @@ export const calculateTotalPassengers = pipe(
 );
 
 export const sortedByCost = pipe(
-  logger,
   filterNaN,
   sortData
 );
@@ -76,5 +78,6 @@ export const sortedByCost = pipe(
 
 export const getState = async () => ({
   ships: await fetchFields(),
+  people: await fetchPeopleFields(),
   fetched: true
 });

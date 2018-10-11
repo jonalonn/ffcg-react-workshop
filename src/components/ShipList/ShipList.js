@@ -3,11 +3,11 @@ import React from 'react';
 const ShipList = ({ships}) => [
     <h1>List of transports</h1>,
 
-    ships.map((ship, i) => (
+    ships.map(({name, manufacturer, cost_in_credits: cost}, i) => (
     <ul key={i} className="list">
-      <li>Name: {ship.name}</li>
-      <li>Manufacturer: {ship.manufacturer}</li>
-      <li>Cost: {ship.cost_in_credits}</li>
+      <li>Name: {name}</li>
+      <li>Manufacturer: {manufacturer}</li>
+      <li>Cost: {cost}</li>
     </ul>
   ))]
 
